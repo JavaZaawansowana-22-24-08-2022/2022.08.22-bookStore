@@ -1,13 +1,14 @@
 package pl.szkolenia.comarch.book.store.database.memory;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import pl.szkolenia.comarch.book.store.database.IBookDAO;
 import pl.szkolenia.comarch.book.store.model.Book;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-@Component
 public class BookDB implements IBookDAO {
     private List<Book> books = new ArrayList<>();
 
@@ -22,4 +23,22 @@ public class BookDB implements IBookDAO {
     public List<Book> getBooks() {
         return books;
     }
+
+    @Override
+    public Optional<Book> getBookById(int id) {
+        for(Book book : this.books) {
+            if(book.getId() == id) {
+                return Optional.of(book);
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    @Override
+    public void updateBook(Book book) {
+        throw new NotImplementedException();
+    }
+
+
 }

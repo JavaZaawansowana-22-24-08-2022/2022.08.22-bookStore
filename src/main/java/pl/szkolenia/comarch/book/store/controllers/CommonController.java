@@ -5,23 +5,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.szkolenia.comarch.book.store.database.IBookDAO;
-import pl.szkolenia.comarch.book.store.model.Book;
-
-import java.util.List;
+import pl.szkolenia.comarch.book.store.services.IBookService;
 
 @Controller
 public class CommonController {
 
     @Autowired
-    IBookDAO bookDAO;
+    IBookService bookService;
 
     @Autowired
     ControllersUtils controllersUtils;
 
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String main() {
+        return "redirect:/main";
+    }
+
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String main(Model model) {
-        model.addAttribute("books", this.bookDAO.getBooks());
+        model.addAttribute("books", this.bookService.getAllBooks());
         this.controllersUtils.addCommonInfoToModel(model);
         return "main";
     }

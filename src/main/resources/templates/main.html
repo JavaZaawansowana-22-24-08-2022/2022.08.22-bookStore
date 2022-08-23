@@ -13,6 +13,7 @@
         <div th:text="${book.author}"></div>
         <div th:text="${book.price}"></div>
         <div th:text="${book.quantity}"></div>
+        <a th:if="${isLogged == true}" th:href="@{/cart/add/{id}(id=${book.id})}">Do koszyka</a>
     </div>
 </div>
 </body>

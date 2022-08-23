@@ -1,6 +1,6 @@
 package pl.szkolenia.comarch.book.store.database.memory;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import pl.szkolenia.comarch.book.store.database.IUserDAO;
 import pl.szkolenia.comarch.book.store.model.User;
 
@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
 public class UserDB implements IUserDAO {
 
     List<User> users = new ArrayList<>();

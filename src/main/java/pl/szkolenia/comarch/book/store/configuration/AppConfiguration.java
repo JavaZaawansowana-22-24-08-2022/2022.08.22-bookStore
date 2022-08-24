@@ -17,7 +17,7 @@ public class AppConfiguration {
     public SessionFactory sessionFactory() {
         return new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
     }
-    @Bean
+    /*@Bean
     public Connection connection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -27,5 +27,5 @@ public class AppConfiguration {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 }

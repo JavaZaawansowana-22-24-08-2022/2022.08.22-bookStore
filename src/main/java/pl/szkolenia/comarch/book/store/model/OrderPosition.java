@@ -7,7 +7,7 @@ public class OrderPosition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Book book;
     private int quantity;
 
@@ -42,5 +42,14 @@ public class OrderPosition {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderPosition{" +
+                "id=" + id +
+                ", book=" + book +
+                ", quantity=" + quantity +
+                '}';
     }
 }

@@ -16,4 +16,9 @@ public class OrderDB implements IOrderDAO {
     public void persistOrder(Order order) {
         this.orders.add(order);
     }
+
+    @Override
+    public List<Order> getOrders() {
+        return null;
+    }
 }

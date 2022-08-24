@@ -2,6 +2,13 @@ package pl.szkolenia.comarch.book.store.model;
 
 import javax.persistence.*;
 
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "procedura",
+                query = "CALL procedure(:parameter)",
+                resultClass = Book.class
+        )
+})
 @Entity(name = "tbook")
 public class Book {
     @Id
@@ -61,5 +68,16 @@ public class Book {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 }

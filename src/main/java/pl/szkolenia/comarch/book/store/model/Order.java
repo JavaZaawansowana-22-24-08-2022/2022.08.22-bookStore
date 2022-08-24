@@ -9,9 +9,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderPosition> orderPositions = new ArrayList<>();
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -63,5 +63,15 @@ public class Order {
         CONFIRMED,
         PAID,
         DONE
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", user=" + user +
+                ", orderPositions=" + orderPositions +
+                ", status=" + status +
+                '}';
     }
 }

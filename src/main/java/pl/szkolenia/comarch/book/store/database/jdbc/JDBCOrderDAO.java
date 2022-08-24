@@ -7,8 +7,8 @@ import pl.szkolenia.comarch.book.store.model.Order;
 import pl.szkolenia.comarch.book.store.model.OrderPosition;
 
 import java.sql.*;
+import java.util.List;
 
-@Repository
 public class JDBCOrderDAO implements IOrderDAO {
 
     @Autowired
@@ -45,5 +45,10 @@ public class JDBCOrderDAO implements IOrderDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<Order> getOrders() {
+        return null;
     }
 }
